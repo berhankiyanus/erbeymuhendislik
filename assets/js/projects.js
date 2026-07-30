@@ -1,21 +1,93 @@
 /* Erbey Mühendislik — Proje veritabanı
-   Yeni proje eklemek için: assets/img/projeler/ klasörüne görseli koy,
-   sonra aşağıdaki listeye aynı formatta yeni bir satır ekle.
-   cat değerleri: konut | endustriyel | ticari | otel | kamu  */
+   Yeni proje: assets/img/projeler/ klasörüne görseli koy, aşağıya kayıt ekle.
+   cat    : konut | endustriyel | ticari | otel | kamu
+   durum  : devam | tamamlandi
+   gorselYok: true  -> görsel yüklenene kadar yer tutucu gösterilir (görsel gelince bu satırı sil)
+ */
 
 window.PROJECTS = [
+  {
+    "slug": "nazende-evleri",
+    "title": "Tat Yapı Nazende Evleri",
+    "cat": "konut",
+    "catName": "Konut & Rezidans",
+    "tur": "Komple Mekanik Tesisat",
+    "buyukluk": "Tat Yapı",
+    "sehir": "Gazze Caddesi",
+    "durum": "devam",
+    "w": 1600,
+    "h": 1000,
+    "ratio": 1.6,
+    "gorselYok": true
+  },
+  {
+    "slug": "nef-meram-villalari",
+    "title": "Nef Meram Villaları",
+    "cat": "konut",
+    "catName": "Konut & Rezidans",
+    "tur": "Komple Mekanik Tesisat",
+    "buyukluk": "Nef",
+    "sehir": "Meram / Konya",
+    "durum": "devam",
+    "w": 1600,
+    "h": 1000,
+    "ratio": 1.6,
+    "gorselYok": true
+  },
+  {
+    "slug": "elbistan-emlak-konut-carsi",
+    "title": "Elbistan Emlak Konut Çarşı",
+    "cat": "ticari",
+    "catName": "Ticari & AVM",
+    "tur": "Komple Mekanik Tesisat",
+    "buyukluk": "Serra Holding",
+    "sehir": "Elbistan",
+    "durum": "devam",
+    "w": 1600,
+    "h": 1000,
+    "ratio": 1.6,
+    "gorselYok": true
+  },
+  {
+    "slug": "vega-kanyon",
+    "title": "Vega Kanyon",
+    "cat": "ticari",
+    "catName": "Ticari & AVM",
+    "tur": "Komple Mekanik Tesisat",
+    "buyukluk": "AKF Grup",
+    "sehir": "",
+    "durum": "devam",
+    "w": 1600,
+    "h": 1000,
+    "ratio": 1.6,
+    "gorselYok": true
+  },
+  {
+    "slug": "anatolia",
+    "title": "Anatolia",
+    "cat": "konut",
+    "catName": "Konut & Rezidans",
+    "tur": "Komple Mekanik Tesisat",
+    "buyukluk": "",
+    "sehir": "",
+    "durum": "devam",
+    "w": 1600,
+    "h": 1000,
+    "ratio": 1.6,
+    "gorselYok": true
+  },
   {
     "slug": "empire-avcilar-istanbul",
     "title": "Empire Avcılar",
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "2021",
     "buyukluk": "208 Daire ve Ticari Alan",
     "sehir": "İstanbul",
     "w": 1035,
     "h": 1276,
-    "ratio": 0.811
+    "ratio": 0.811,
+    "durum": "tamamlandi"
   },
   {
     "slug": "gaziosmanpasa-toki-istanbul",
@@ -23,12 +95,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "2021",
     "buyukluk": "796 Daire",
     "sehir": "İstanbul",
     "w": 1236,
     "h": 1270,
-    "ratio": 0.973
+    "ratio": 0.973,
+    "durum": "tamamlandi"
   },
   {
     "slug": "avrasya-basaksehir-istanbul",
@@ -36,12 +108,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "2021",
     "buyukluk": "453 Daire ve Ticari Alan",
     "sehir": "İstanbul",
     "w": 1869,
     "h": 820,
-    "ratio": 2.279
+    "ratio": 2.279,
+    "durum": "tamamlandi"
   },
   {
     "slug": "vizyon-istanbul-evleri",
@@ -49,12 +121,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "155 Daire",
     "sehir": "İstanbul",
     "w": 1844,
     "h": 1269,
-    "ratio": 1.453
+    "ratio": 1.453,
+    "durum": "tamamlandi"
   },
   {
     "slug": "kultur-sitesi",
@@ -62,12 +134,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "124 Daire · 27 Dükkan",
     "sehir": "Konya",
     "w": 1844,
     "h": 1105,
-    "ratio": 1.669
+    "ratio": 1.669,
+    "durum": "tamamlandi"
   },
   {
     "slug": "bahcekent-flora-emlak-konut-istanbul",
@@ -75,12 +147,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "2019",
     "buyukluk": "820 Konut · 150.000 m²",
     "sehir": "İstanbul",
     "w": 1870,
     "h": 830,
-    "ratio": 2.253
+    "ratio": 2.253,
+    "durum": "tamamlandi"
   },
   {
     "slug": "atasehir-konutlari",
@@ -88,12 +160,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "576 Daire",
     "sehir": "İstanbul",
     "w": 1386,
     "h": 1269,
-    "ratio": 1.092
+    "ratio": 1.092,
+    "durum": "tamamlandi"
   },
   {
     "slug": "altinkoza-konaklari",
@@ -101,12 +173,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "180 Daire",
     "sehir": "Konya",
     "w": 1846,
     "h": 1085,
-    "ratio": 1.701
+    "ratio": 1.701,
+    "durum": "tamamlandi"
   },
   {
     "slug": "optimist-residence-istanbul",
@@ -114,12 +186,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "2021",
     "buyukluk": "554 Konut · 56 Ticari Ünite",
     "sehir": "İstanbul",
     "w": 1213,
     "h": 1270,
-    "ratio": 0.955
+    "ratio": 0.955,
+    "durum": "tamamlandi"
   },
   {
     "slug": "tual-bahcekent-istanbul",
@@ -127,12 +199,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "Konut ve Yaşam Merkezi",
     "sehir": "İstanbul",
     "w": 1316,
     "h": 1109,
-    "ratio": 1.187
+    "ratio": 1.187,
+    "durum": "tamamlandi"
   },
   {
     "slug": "dogasehir-konutlari",
@@ -140,12 +212,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Isıtma, Doğalgaz ve Havuz Tesisatı",
-    "yil": "",
     "buyukluk": "1200 Daire · 16 Villa · Sosyal Tesis",
     "sehir": "Konya",
     "w": 1503,
     "h": 1269,
-    "ratio": 1.184
+    "ratio": 1.184,
+    "durum": "tamamlandi"
   },
   {
     "slug": "kosem-sitesi",
@@ -153,12 +225,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Isıtma ve Doğalgaz Tesisatı",
-    "yil": "",
     "buyukluk": "56 Daire",
     "sehir": "Konya",
     "w": 1873,
     "h": 1098,
-    "ratio": 1.706
+    "ratio": 1.706,
+    "durum": "tamamlandi"
   },
   {
     "slug": "mesnevi-konutlari",
@@ -166,12 +238,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "450 Daire",
     "sehir": "Konya",
     "w": 1844,
     "h": 1269,
-    "ratio": 1.453
+    "ratio": 1.453,
+    "durum": "tamamlandi"
   },
   {
     "slug": "star-tower-sitesi",
@@ -179,12 +251,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Doğalgaz ve Kalorifer Tesisatı",
-    "yil": "",
     "buyukluk": "66 Daire ve Ticari Dükkanlar",
     "sehir": "Konya",
     "w": 1053,
     "h": 996,
-    "ratio": 1.057
+    "ratio": 1.057,
+    "durum": "tamamlandi"
   },
   {
     "slug": "yaka-tower-deluxe",
@@ -192,12 +264,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Doğalgaz ve Kalorifer Tesisatı",
-    "yil": "",
     "buyukluk": "40 Daire ve Ticari Dükkanlar",
     "sehir": "Konya",
     "w": 1134,
     "h": 983,
-    "ratio": 1.154
+    "ratio": 1.154,
+    "durum": "tamamlandi"
   },
   {
     "slug": "prestij-konutlari",
@@ -205,12 +277,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "180 Daire",
     "sehir": "Konya",
     "w": 1862,
     "h": 1269,
-    "ratio": 1.467
+    "ratio": 1.467,
+    "durum": "tamamlandi"
   },
   {
     "slug": "residence-hill",
@@ -218,12 +290,12 @@ window.PROJECTS = [
     "cat": "konut",
     "catName": "Konut & Rezidans",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "460 Daire",
     "sehir": "Konya",
     "w": 1847,
     "h": 914,
-    "ratio": 2.021
+    "ratio": 2.021,
+    "durum": "tamamlandi"
   },
   {
     "slug": "algida-dondurma-fabrikasi",
@@ -231,12 +303,12 @@ window.PROJECTS = [
     "cat": "endustriyel",
     "catName": "Endüstriyel Tesisler",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "Unilever / Algida",
     "sehir": "Konya",
     "w": 1860,
     "h": 1268,
-    "ratio": 1.467
+    "ratio": 1.467,
+    "durum": "tamamlandi"
   },
   {
     "slug": "ozen-makina",
@@ -244,12 +316,12 @@ window.PROJECTS = [
     "cat": "endustriyel",
     "catName": "Endüstriyel Tesisler",
     "tur": "Yerden Isıtma · Doğalgaz · VRF Tesisatı",
-    "yil": "",
     "buyukluk": "Üretim ve İdari Tesis",
     "sehir": "Konya",
     "w": 1847,
     "h": 1269,
-    "ratio": 1.455
+    "ratio": 1.455,
+    "durum": "tamamlandi"
   },
   {
     "slug": "genmot-krank-fabrikasi",
@@ -257,12 +329,12 @@ window.PROJECTS = [
     "cat": "endustriyel",
     "catName": "Endüstriyel Tesisler",
     "tur": "Isıtma (Radyant) ve Doğalgaz Tesisatı",
-    "yil": "",
     "buyukluk": "8.000 m²",
     "sehir": "Konya",
     "w": 1862,
     "h": 1033,
-    "ratio": 1.803
+    "ratio": 1.803,
+    "durum": "tamamlandi"
   },
   {
     "slug": "pakplast-fabrikasi",
@@ -270,12 +342,12 @@ window.PROJECTS = [
     "cat": "endustriyel",
     "catName": "Endüstriyel Tesisler",
     "tur": "Isıtma (Radyant) ve Doğalgaz Tesisatı",
-    "yil": "",
     "buyukluk": "10.000 m²",
     "sehir": "Konya",
     "w": 1860,
     "h": 1269,
-    "ratio": 1.466
+    "ratio": 1.466,
+    "durum": "tamamlandi"
   },
   {
     "slug": "mepsan-fabrikasi",
@@ -283,12 +355,12 @@ window.PROJECTS = [
     "cat": "endustriyel",
     "catName": "Endüstriyel Tesisler",
     "tur": "Isıtma (Radyant) ve Doğalgaz Tesisatı",
-    "yil": "",
     "buyukluk": "6.000 m²",
     "sehir": "Konya",
     "w": 1848,
     "h": 1269,
-    "ratio": 1.456
+    "ratio": 1.456,
+    "durum": "tamamlandi"
   },
   {
     "slug": "konya-seker-entegre-tesisleri",
@@ -296,12 +368,12 @@ window.PROJECTS = [
     "cat": "endustriyel",
     "catName": "Endüstriyel Tesisler",
     "tur": "Proses Hattı Altyapı Tesisatı",
-    "yil": "",
     "buyukluk": "74.000 m²",
     "sehir": "Konya",
     "w": 1862,
     "h": 1269,
-    "ratio": 1.467
+    "ratio": 1.467,
+    "durum": "tamamlandi"
   },
   {
     "slug": "oval-carsi-a-v-m",
@@ -309,12 +381,12 @@ window.PROJECTS = [
     "cat": "ticari",
     "catName": "Ticari & AVM",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "10.000 m²",
     "sehir": "Konya",
     "w": 1847,
     "h": 1269,
-    "ratio": 1.455
+    "ratio": 1.455,
+    "durum": "tamamlandi"
   },
   {
     "slug": "petek-pastanesi-konya",
@@ -322,12 +394,12 @@ window.PROJECTS = [
     "cat": "ticari",
     "catName": "Ticari & AVM",
     "tur": "Doğalgaz · Havalandırma · VRF Tesisatı",
-    "yil": "",
     "buyukluk": "Ticari Tesis",
     "sehir": "Konya",
     "w": 1843,
     "h": 1269,
-    "ratio": 1.452
+    "ratio": 1.452,
+    "durum": "tamamlandi"
   },
   {
     "slug": "dag-muhendislik-idari-bina",
@@ -335,12 +407,12 @@ window.PROJECTS = [
     "cat": "ticari",
     "catName": "Ticari & AVM",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "İdari Bina",
     "sehir": "Konya",
     "w": 1854,
     "h": 1269,
-    "ratio": 1.461
+    "ratio": 1.461,
+    "durum": "tamamlandi"
   },
   {
     "slug": "novaland-a-v-m",
@@ -348,12 +420,12 @@ window.PROJECTS = [
     "cat": "ticari",
     "catName": "Ticari & AVM",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "70.000 m²",
     "sehir": "Konya",
     "w": 1842,
     "h": 758,
-    "ratio": 2.43
+    "ratio": 2.43,
+    "durum": "tamamlandi"
   },
   {
     "slug": "cherry-garden-hotel-konya",
@@ -361,12 +433,12 @@ window.PROJECTS = [
     "cat": "otel",
     "catName": "Otel & Turizm",
     "tur": "Doğalgaz · Kalorifer · VRF Tesisatı",
-    "yil": "2012",
     "buyukluk": "240 Yataklı",
     "sehir": "Konya",
     "w": 1846,
     "h": 774,
-    "ratio": 2.385
+    "ratio": 2.385,
+    "durum": "tamamlandi"
   },
   {
     "slug": "elite-hotel-baku",
@@ -374,12 +446,12 @@ window.PROJECTS = [
     "cat": "otel",
     "catName": "Otel & Turizm",
     "tur": "Klima · Havalandırma · Soğutma Tesisatı",
-    "yil": "",
     "buyukluk": "300 Yataklı",
     "sehir": "Bakü / Azerbaycan",
     "w": 1903,
     "h": 1270,
-    "ratio": 1.498
+    "ratio": 1.498,
+    "durum": "tamamlandi"
   },
   {
     "slug": "selcuklu-belediyesi-yurt-binasi",
@@ -387,12 +459,12 @@ window.PROJECTS = [
     "cat": "kamu",
     "catName": "Kamu & Sosyal Tesis",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "1.000 Yataklı",
     "sehir": "Konya",
     "w": 1859,
     "h": 1269,
-    "ratio": 1.465
+    "ratio": 1.465,
+    "durum": "tamamlandi"
   },
   {
     "slug": "meram-belediyesi-hizmet-binasi-konya",
@@ -400,12 +472,12 @@ window.PROJECTS = [
     "cat": "kamu",
     "catName": "Kamu & Sosyal Tesis",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "",
     "buyukluk": "20.000 m²",
     "sehir": "Konya",
     "w": 1865,
     "h": 1269,
-    "ratio": 1.47
+    "ratio": 1.47,
+    "durum": "tamamlandi"
   },
   {
     "slug": "gungoren-guneslitepe-ilkokulu",
@@ -413,12 +485,12 @@ window.PROJECTS = [
     "cat": "kamu",
     "catName": "Kamu & Sosyal Tesis",
     "tur": "Komple Mekanik Tesisat",
-    "yil": "2021",
     "buyukluk": "Eğitim Yapısı",
     "sehir": "İstanbul",
     "w": 1916,
     "h": 853,
-    "ratio": 2.246
+    "ratio": 2.246,
+    "durum": "tamamlandi"
   },
   {
     "slug": "rts-diyaliz-hastanesi",
@@ -426,11 +498,39 @@ window.PROJECTS = [
     "cat": "kamu",
     "catName": "Kamu & Sosyal Tesis",
     "tur": "Isıtma · Soğutma · Havalandırma Tesisatı",
-    "yil": "",
     "buyukluk": "10.000 m²",
     "sehir": "Konya",
     "w": 1859,
     "h": 1270,
-    "ratio": 1.464
+    "ratio": 1.464,
+    "durum": "tamamlandi"
+  },
+  {
+    "slug": "delta-5-sanayi-sitesi",
+    "title": "Delta 5 Sanayi Sitesi",
+    "cat": "endustriyel",
+    "catName": "Endüstriyel Tesisler",
+    "tur": "Komple Mekanik Tesisat",
+    "buyukluk": "",
+    "sehir": "",
+    "durum": "tamamlandi",
+    "w": 1600,
+    "h": 1000,
+    "ratio": 1.6,
+    "gorselYok": true
+  },
+  {
+    "slug": "delta-3-sanayi-sitesi",
+    "title": "Delta 3 Sanayi Sitesi",
+    "cat": "endustriyel",
+    "catName": "Endüstriyel Tesisler",
+    "tur": "Komple Mekanik Tesisat",
+    "buyukluk": "",
+    "sehir": "",
+    "durum": "tamamlandi",
+    "w": 1600,
+    "h": 1000,
+    "ratio": 1.6,
+    "gorselYok": true
   }
 ];

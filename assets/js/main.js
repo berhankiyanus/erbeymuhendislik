@@ -182,10 +182,16 @@
       '</picture>';
   }
 
+  function badge(p) {
+    return p.durum === 'devam'
+      ? '<span class="badge badge--live"><i></i>Devam Ediyor</span>' : '';
+  }
+
   function cardHTML(p, idx) {
-    return '<article class="card" data-i="' + idx + '" tabindex="0" role="button" ' +
-      'aria-label="' + p.title + ' projesini incele">' +
+    return '<article class="card' + (p.gorselYok ? ' card--noimg' : '') + '" data-i="' + idx + '" ' +
+      'tabindex="0" role="button" aria-label="' + p.title + ' projesini incele">' +
       '<div class="card__img">' + picture(p, 800) + '</div>' +
+      badge(p) +
       '<span class="card__plus" aria-hidden="true">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">' +
         '<path d="M12 5v14M5 12h14"/></svg></span>' +
@@ -221,12 +227,14 @@
     const all = window.PROJECTS;
     let view = all.slice();
 
+    // filtre: 'all' | 'devam' (durum) | kategori anahtarı
+    const match = (p, f) =>
+      f === 'all' ? true : f === 'devam' ? p.durum === 'devam' : p.cat === f;
+
     // filtre butonlarındaki sayıları doldur
     $$('[data-filter]').forEach(b => {
-      const f = b.dataset.filter;
-      const n = f === 'all' ? all.length : all.filter(p => p.cat === f).length;
       const s = $('span', b);
-      if (s) s.textContent = n;
+      if (s) s.textContent = all.filter(p => match(p, b.dataset.filter)).length;
     });
 
     function render(list) {
@@ -242,8 +250,7 @@
       btn.addEventListener('click', () => {
         $$('[data-filter]').forEach(b => b.classList.remove('is-on'));
         btn.classList.add('is-on');
-        const f = btn.dataset.filter;
-        render(f === 'all' ? all : all.filter(p => p.cat === f));
+        render(all.filter(p => match(p, btn.dataset.filter)));
       });
     });
 
@@ -259,13 +266,13 @@
         box.innerHTML =
           picture(p, '', 'lb__img', false) +
           '<div class="lb__body">' +
-            '<div class="lb__cat">' + p.catName + '</div>' +
+            '<div class="lb__cat">' + p.catName + badge(p) + '</div>' +
             '<h2 class="lb__title">' + p.title + '</h2>' +
             '<dl class="lb__specs">' +
               spec('Proje Türü', p.tur) +
               spec('Kapsam', p.buyukluk) +
               spec('Konum', p.sehir) +
-              spec('Yıl', p.yil) +
+              spec('Durum', p.durum === 'devam' ? 'Devam ediyor' : 'Tamamlandı') +
             '</dl></div>';
         if (history.replaceState) history.replaceState(null, '', '#' + p.slug);
       }
