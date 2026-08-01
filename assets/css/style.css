@@ -1173,3 +1173,117 @@ section { position: relative; }
   .hdr, .totop, .progress, .pre, .marquee, .hero__scroll { display: none !important; }
   body { background: #fff; color: #000; }
 }
+
+/* ============================================================
+   C PAKETİ — Blueprint kimliği, referans duvarı, SSS, arşiv
+   ============================================================ */
+
+/* --- Blueprint grid dokusu (hero + sayfa başlıkları) --- */
+.hero::after, .phead::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background-image:
+    linear-gradient(rgba(201,162,39,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,162,39,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+}
+.hero { position: relative; }
+.phead { position: relative; }
+
+/* --- Pafta etiketi (teknik çizim kodu) --- */
+.eyebrow[data-plate]::after {
+  content: attr(data-plate);
+  margin-left: 1rem; padding: .28rem .6rem;
+  border: 1px solid rgba(201,162,39,.3);
+  font-size: .58rem; letter-spacing: .18em;
+  color: rgba(201,162,39,.75);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Kart köşe tikleri (teknik çizim köşebentleri) --- */
+.card { position: relative; }
+.card::before, .card::after {
+  content: ""; position: absolute; width: 14px; height: 14px; z-index: 4;
+  opacity: 0; transition: opacity .35s;
+  pointer-events: none;
+}
+.card::before { top: 8px; right: 8px; border-top: 1px solid var(--gold-soft); border-right: 1px solid var(--gold-soft); }
+.card::after  { bottom: 8px; left: 8px; border-bottom: 1px solid var(--gold-soft); border-left: 1px solid var(--gold-soft); }
+.card:hover::before, .card:hover::after { opacity: 1; }
+
+/* --- Referans duvarı --- */
+.clients-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 2.6rem; flex-wrap: wrap; }
+.clients-note { max-width: 380px; color: var(--muted); font-size: .95rem; margin: 0; }
+.clients {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--line); border: 1px solid var(--line);
+}
+.client {
+  background: var(--ink); padding: clamp(1.4rem, 2.6vw, 2.2rem) clamp(1.2rem, 2vw, 1.8rem);
+  display: flex; flex-direction: column; gap: .35rem;
+  transition: background .35s;
+}
+.client b {
+  font-family: 'Outfit', sans-serif; font-weight: 400;
+  font-size: clamp(1.02rem, 1.6vw, 1.3rem); letter-spacing: .01em; color: var(--text);
+  transition: color .35s;
+}
+.client i { font-style: normal; font-size: .78rem; color: var(--muted); letter-spacing: .04em; }
+.client:hover { background: #131318; }
+.client:hover b { color: var(--gold-soft); }
+@media (max-width: 1000px) { .clients { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px)  { .clients { grid-template-columns: repeat(2, 1fr); } }
+
+/* --- Manifesto --- */
+.manifesto { border-block: 1px solid var(--line); background: var(--ink-1); }
+.manifesto__q {
+  position: relative; max-width: 900px; margin: 0 auto; text-align: center;
+  font-family: 'Outfit', sans-serif; font-weight: 300;
+  font-size: clamp(1.5rem, 3.4vw, 2.5rem); line-height: 1.4; color: var(--text);
+}
+.manifesto__q em { font-style: normal; color: var(--gold-soft); }
+.manifesto__mark {
+  display: block; font-size: clamp(3.4rem, 7vw, 5.4rem); line-height: .4;
+  color: rgba(201,162,39,.5); margin-bottom: 1.6rem; font-family: Georgia, serif;
+}
+.manifesto__src {
+  margin-top: 2rem; font-family: 'Inter', sans-serif;
+  font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+}
+
+/* --- SSS --- */
+.faq { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.faq__item { border-bottom: 1px solid var(--line); }
+.faq__item summary {
+  cursor: pointer; list-style: none; position: relative;
+  padding: 1.5rem 3rem 1.5rem 0;
+  font-family: 'Outfit', sans-serif; font-weight: 400;
+  font-size: clamp(1.02rem, 1.8vw, 1.2rem); color: var(--text);
+  transition: color .3s;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: "+"; position: absolute; right: .4rem; top: 50%;
+  transform: translateY(-50%);
+  font-weight: 200; font-size: 1.6rem; color: var(--gold-soft);
+  transition: transform .3s;
+}
+.faq__item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq__item summary:hover { color: var(--gold-soft); }
+.faq__item p { padding: 0 0 1.6rem; margin: 0; max-width: 720px; color: var(--muted); line-height: 1.8; }
+
+/* --- Arşiv estetiği (eski katalog taramaları) --- */
+.figure--archive img {
+  filter: sepia(.28) contrast(.94) brightness(.9) saturate(.75);
+}
+.figure--archive { outline: 1px solid rgba(201,162,39,.25); outline-offset: -10px; }
+.figure--archive .figure__tag {
+  background: rgba(8,8,10,.85); border: 1px solid rgba(201,162,39,.35);
+}
+
+/* --- Mikro etkileşimler --- */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .btn { transition: transform .25s cubic-bezier(.22,1,.36,1), background .35s, color .35s, border-color .35s; will-change: transform; }
+  .card { transition: transform .45s cubic-bezier(.22,1,.36,1); transform-style: preserve-3d; }
+}

@@ -343,4 +343,35 @@
 
   /* --- Yıl --------------------------------------------------------------*/
   $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+
+  /* --- Mikro etkileşimler (yalnızca fare + hareket kısıtı yoksa) --------*/
+  const finePointer = matchMedia('(pointer: fine)').matches;
+  const okMotion = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (finePointer && okMotion) {
+    // Manyetik butonlar: imleç yaklaşınca hafifçe ona doğru kayar
+    $$('.btn').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) / r.width;
+        const y = (e.clientY - r.top - r.height / 2) / r.height;
+        btn.style.transform = 'translate(' + (x * 7).toFixed(1) + 'px,' + (y * 5).toFixed(1) + 'px)';
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+
+    // Kartlarda çok hafif 3B eğim
+    document.addEventListener('mousemove', e => {
+      const card = e.target.closest && e.target.closest('.card');
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      const rx = ((e.clientY - r.top) / r.height - .5) * -2.4;
+      const ry = ((e.clientX - r.left) / r.width - .5) * 2.4;
+      card.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+    }, { passive: true });
+    document.addEventListener('mouseout', e => {
+      const card = e.target.closest && e.target.closest('.card');
+      if (card && !card.contains(e.relatedTarget)) card.style.transform = '';
+    }, { passive: true });
+  }
 })();
